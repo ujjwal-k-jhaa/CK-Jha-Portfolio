@@ -1,6 +1,6 @@
 import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
 import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom";
-import { Play, ArrowRight, Mail, Clapperboard, Scissors, MonitorPlay, Zap, Instagram, Twitter, Youtube, Linkedin, CheckCircle2, FileVideo, Video, Timer, RotateCcw, Infinity, MessageSquare, LayoutDashboard, Music, DollarSign, ChevronDown, Mic, Sparkles, TrendingUp, Search, Pause, GripVertical } from "lucide-react";
+import { Play, ArrowRight, Mail, Clapperboard, Scissors, MonitorPlay, Zap, Instagram, Twitter, Youtube, Linkedin, CheckCircle2, FileVideo, Video, Timer, RotateCcw, Infinity, MessageSquare, LayoutDashboard, Music, DollarSign, ChevronDown, Mic, Sparkles, TrendingUp, Search, Pause, GripVertical, Menu, X } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 
 // Data
@@ -84,9 +84,11 @@ function ScrollToTop() {
 }
 
 function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
-      <nav className="pointer-events-auto flex items-center justify-between gap-6 md:gap-12 px-6 py-3 border border-white/10 bg-[#050505]/60 backdrop-blur-xl rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.6)]">
+    <div className="fixed top-6 left-0 right-0 z-50 flex flex-col items-center px-4 pointer-events-none">
+      <nav className="pointer-events-auto flex items-center justify-between gap-4 md:gap-12 px-6 py-3 border border-white/10 bg-[#050505]/60 backdrop-blur-xl rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.6)] w-full max-w-fit">
         <Link to="/" className="text-xl font-display font-bold tracking-tight uppercase hover:text-violet-400 transition-colors">
           CK JHA.
         </Link>
@@ -96,8 +98,33 @@ function Navbar() {
           <Link to="/portfolio" className="text-zinc-400 hover:text-white transition-colors">Portfolio</Link>
           <Link to="/clipping" className="text-zinc-400 hover:text-white transition-colors">Clipping</Link>
         </div>
-        <a href="#contact" className="px-5 py-2.5 bg-white text-black text-sm font-bold rounded-full hover:bg-zinc-200 transition-colors whitespace-nowrap">Let's Talk</a>
+        <div className="flex items-center gap-2">
+          <a href="#contact" className="hidden sm:block px-5 py-2.5 bg-white text-black text-sm font-bold rounded-full hover:bg-zinc-200 transition-colors whitespace-nowrap">Let's Talk</a>
+          <button 
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden p-2 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-colors"
+          >
+            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
       </nav>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="pointer-events-auto mt-4 w-full max-w-[200px] bg-[#050505]/90 backdrop-blur-xl border border-white/10 rounded-2xl p-4 flex flex-col gap-4 text-center md:hidden"
+          >
+            <Link to="/" onClick={() => setIsOpen(false)} className="text-zinc-400 hover:text-white transition-colors">Home</Link>
+            <a href="/#services" onClick={() => setIsOpen(false)} className="text-zinc-400 hover:text-white transition-colors">Services</a>
+            <Link to="/portfolio" onClick={() => setIsOpen(false)} className="text-zinc-400 hover:text-white transition-colors">Portfolio</Link>
+            <Link to="/clipping" onClick={() => setIsOpen(false)} className="text-zinc-400 hover:text-white transition-colors">Clipping</Link>
+            <a href="#contact" onClick={() => setIsOpen(false)} className="px-5 py-2.5 bg-white text-black text-sm font-bold rounded-full hover:bg-zinc-200 transition-colors whitespace-nowrap mt-2">Let's Talk</a>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
