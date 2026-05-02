@@ -135,26 +135,26 @@ function VennDiagram() {
   return (
     <div className="relative w-full max-w-[400px] mx-auto aspect-square text-center font-display font-bold my-16">
       {/* Top Circle */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 rounded-full bg-cyan-500/10 border border-cyan-500/30 mix-blend-screen flex flex-col items-center justify-start pt-10 backdrop-blur-[2px]">
-        <span className="text-white text-xl">Quality</span>
-        <span className="text-cyan-200/60 font-serif italic text-sm font-normal">Premium Output</span>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[65%] h-[65%] rounded-full bg-cyan-500/10 border border-cyan-500/30 mix-blend-screen flex flex-col items-center justify-start pt-[12%] backdrop-blur-[2px]">
+        <span className="text-white text-lg md:text-xl">Quality</span>
+        <span className="text-cyan-200/60 font-serif italic text-xs md:text-sm font-normal">Premium Output</span>
       </div>
       
       {/* Bottom Left Circle */}
-      <div className="absolute bottom-8 left-0 w-64 h-64 rounded-full bg-rose-500/10 border border-rose-500/30 mix-blend-screen flex flex-col items-start justify-end pb-16 pl-10 backdrop-blur-[2px]">
-        <span className="text-white text-xl">Speed</span>
-        <span className="text-rose-200/60 font-serif italic text-sm font-normal">Fast Turnaround</span>
+      <div className="absolute bottom-[8%] left-0 w-[65%] h-[65%] rounded-full bg-rose-500/10 border border-rose-500/30 mix-blend-screen flex flex-col items-start justify-end pb-[16%] pl-[10%] md:pl-[12%] backdrop-blur-[2px]">
+        <span className="text-white text-lg md:text-xl">Speed</span>
+        <span className="text-rose-200/60 font-serif italic text-xs md:text-sm font-normal">Fast Turnaround</span>
       </div>
       
       {/* Bottom Right Circle */}
-      <div className="absolute bottom-8 right-0 w-64 h-64 rounded-full bg-emerald-500/10 border border-emerald-500/30 mix-blend-screen flex flex-col items-end justify-end pb-16 pr-10 backdrop-blur-[2px]">
-        <span className="text-white text-xl">Cost</span>
-        <span className="text-emerald-200/60 font-serif italic text-sm font-normal">Fraction of Price</span>
+      <div className="absolute bottom-[8%] right-0 w-[65%] h-[65%] rounded-full bg-emerald-500/10 border border-emerald-500/30 mix-blend-screen flex flex-col items-end justify-end pb-[16%] pr-[10%] md:pr-[12%] backdrop-blur-[2px]">
+        <span className="text-white text-lg md:text-xl">Cost</span>
+        <span className="text-emerald-200/60 font-serif italic text-xs md:text-sm font-normal">Fraction of Price</span>
       </div>
       
       {/* Center Intersection */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[40%] z-10 flex items-center justify-center drop-shadow-2xl">
-         <span className="text-2xl font-display font-bold tracking-tight uppercase text-white">
+         <span className="text-lg md:text-2xl font-display font-bold tracking-tight uppercase text-white">
            CK JHA.
          </span>
       </div>
@@ -914,19 +914,6 @@ function Clipping() {
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                     ></iframe>
-                    
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-6 pt-24 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex flex-col justify-end">
-                      <div className="flex items-center justify-between">
-                        <div className="flex flex-col">
-                          <span className="text-white/60 text-xs font-bold uppercase tracking-wider mb-1">Views</span>
-                          <span className="text-white font-mono font-bold text-xl">{video.views}</span>
-                        </div>
-                        <div className="flex flex-col items-end">
-                          <span className="text-cyan-400 text-xs font-bold uppercase tracking-wider mb-1">Engagement</span>
-                          <span className="text-cyan-50 font-mono font-bold text-xl">{video.engagement}</span>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </motion.div>
               ))}
