@@ -29,7 +29,7 @@ export default function Navbar() {
   const menuItems = [
     { name: 'Home', href: '/' },
     { name: 'Portfolio', href: '/portfolio' },
-    { name: 'Contact', href: '/#contact' },
+    { name: 'Thumbnail', href: 'https://thumbnail.chakradhar.website/' },
   ];
 
   return (
